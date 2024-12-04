@@ -13,6 +13,6 @@ import org.springframework.stereotype.Repository;
  * @author remib
  */
 @Repository
-public interface BorrowRepository  extends JpaRepository<Borrow, Integer> {
+public interface BorrowRepository  extends JpaRepository<Borrow, Integer>, BorrowRepositoryCustom {
     
 }

@@ -8,6 +8,6 @@ package ei3.prweb.repositories;
  *
  * @author remib
  */
-public interface PersonRepositoryCustom extends PersonRepository {
+public interface PersonRepositoryCustom {
     
 }

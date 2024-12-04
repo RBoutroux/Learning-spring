@@ -8,6 +8,6 @@ package ei3.prweb.repositories;
  *
  * @author remib
  */
-public interface BorrowRepositoryCustom extends BorrowRepository {
+public interface BorrowRepositoryCustom {
     
 }

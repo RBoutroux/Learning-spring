@@ -13,6 +13,6 @@ import org.springframework.stereotype.Repository;
  * @author remib
  */
 @Repository
-public interface BookRepository extends JpaRepository<Book, Integer>{
+public interface BookRepository extends JpaRepository<Book, Integer>, BookRepositoryCustom{
     
 }
