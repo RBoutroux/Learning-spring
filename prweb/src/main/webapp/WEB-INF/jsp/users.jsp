@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <style>
     .icon-small {
@@ -53,7 +54,7 @@
                                     <td scope="col">${item.personId}</td>
                                     <td>${item.personFirstname}</td>
                                     <td>${item.personLastname}</td>
-                                    <td>${item.personBirthdate}</td>
+                                    <td><fmt:formatDate value="${item.personBirthdate}" pattern="yyyy-MM--dd" /></td>
                                     <td class="text-center">
                                         <form action="editUser" method="POST" class=" d-inline-block">
                                             <button name="edit" class="btn">
