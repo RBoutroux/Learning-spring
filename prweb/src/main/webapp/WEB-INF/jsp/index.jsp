@@ -18,7 +18,7 @@
           </div>
           <div class="row">
             <div class="col-md-12">
-              <form id="c_form-h" action="login" method="POST">
+              <form id="c_form-h" action="login.do" method="POST">
                 <div class="form-group row">
                   <label for="input login" class="col-2 col-form-label">Login</label>
                   <div class="col-10">

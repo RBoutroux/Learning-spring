@@ -4,8 +4,10 @@
  */
 package ei3.prweb.controllers;
 
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -18,5 +20,21 @@ public class IndexController {
     @RequestMapping(value="index.do")
     public ModelAndView handleIndexGet() {
         return new ModelAndView("index");
+    }
+    
+    @RequestMapping(value="login.do", method=RequestMethod.POST)
+    public ModelAndView handleLoginPost(HttpServletRequest request){
+        ModelAndView returned;
+        
+        String login = request.getParameter("login");
+        String password = request.getParameter("password");
+        
+        if ((login != null) && (password !=null) && (login.equals("admin")) && (password.equals("admin"))){
+            returned = new ModelAndView("users");
+        }
+        else {
+            returned = new ModelAndView("index");
+        }
+        return returned;
     }
 }
