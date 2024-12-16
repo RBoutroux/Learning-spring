@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <style>
     .icon-small {
@@ -47,23 +48,26 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td scope="col">1</td>
-                            <td>RÃ©mi</td>
-                            <td>Boutroux</td>
-                            <td>2001-05-31</td>
-                            <td class="text-center">
-                                <form action="editUser" method="POST" class=" d-inline-block">
-                                    <button name="edit" class="btn">
-                                        <img src="img/edit.png" alt="edit" class="icon img-fluid icon-small" />
-                                    </button>
-                                </form>
-                                <form action="deleteUser" method="POST" class=" d-inline-block">
-                                    <button name="delete" class="btn">
-                                        <img src="img/delete.png" alt="delete" class="icon img-fluid icon-small" />
-                                    </button>
-                                </form>
-                        </tr>
+                            <c:forEach var="item" items="${usersList}">
+                                <tr>
+                                    <td scope="col">${item.personId}</td>
+                                    <td>${item.personFirstname}</td>
+                                    <td>${item.personLastname}</td>
+                                    <td>${item.personBirthdate}</td>
+                                    <td class="text-center">
+                                        <form action="editUser" method="POST" class=" d-inline-block">
+                                            <button name="edit" class="btn">
+                                                <img src="img/edit.png" alt="edit" class="icon img-fluid icon-small" />
+                                            </button>
+                                        </form>
+                                        <form action="deleteUser" method="POST" class=" d-inline-block">
+                                            <button name="delete" class="btn">
+                                                <img src="img/delete.png" alt="delete" class="icon img-fluid icon-small" />
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            </c:forEach>
                         </tbody>
                         <tfoot>
                             <tr id="addNew">

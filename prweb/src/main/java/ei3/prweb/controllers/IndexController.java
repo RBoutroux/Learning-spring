@@ -4,7 +4,11 @@
  */
 package ei3.prweb.controllers;
 
+import ei3.prweb.items.Person;
+import ei3.prweb.repositories.PersonRepository;
+import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,6 +20,8 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class IndexController {
+    @Autowired
+    private PersonRepository personRepository;
     
     @RequestMapping(value="index.do")
     public ModelAndView handleIndexGet() {
@@ -48,7 +54,10 @@ public class IndexController {
         String password = user.getPassword();
         
         if ((login != null) && (password !=null) && (login.equals("admin")) && (password.equals("admin"))){
+            
+            Collection<Person> myList = personRepository.findAll();
             returned = new ModelAndView("users");
+            returned.addObject("usersList", myList);
         }
         else {
             returned = new ModelAndView("index");
