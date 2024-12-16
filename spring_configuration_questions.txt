@@ -1,0 +1,39 @@
+What are the main configuration files? What are they used for?
+META-INF : Configuration directory for execution.
+It contains a file “context.xml” that gives the route for your application.
+DO NOT CHANGE IT if you are not required to.
+
+WEB-INF : Configuration directory for the application.
+It contents :
+– some configuration files.
+* web.xml that defines servlet, listeners, the starting page, …
+* applicationContext.xml that defines how the application works, how to find
+controllers and repositories
+* dispatcher-servlet.xml that defines how to find controllers, repositories and views.
+* beans.xml that define the list of controllers in some spring versions
+– html, jsp files : used when you start the application
+
+web.xml tells many things about the way the application works.
+• “contextConfigLocation” : where is the file applicationContext.
+• the servlet “dispatcher” (the servlet-name sets the name) : tells which module manages the
+servlets.
+• the tag “servlet-mapping” for “dispatcher” : explains that the routes that ends with “.do” are
+sent to the dispatcher to be managed by the servlet.
+• the tag “welcome-file-list” : tells which file is the starting page.
+
+
+
+What is a persistence file? Where is it located?
+Entity classes are I think persistence files. 
+There is also persistence.xml that manages persistence (aka. table and entities) 
+
+What is a namespace?
+C'est un ensemeble de classes qui se connaissent les unes les autres. (c'est quoi la diff avec un package ?)
+On peut import un namespace ou un élément d'un namaespace dans un autre namespace ou dans une classe directement. 
+
+How do you define a route in a controller?
+Annotation @RequestMapping tells what route we manage.
+
+Where are located views? How are they used by controllers?
+“WEB-INF/views/index.jsp”.
+They are used using the class ModelAndView. 
