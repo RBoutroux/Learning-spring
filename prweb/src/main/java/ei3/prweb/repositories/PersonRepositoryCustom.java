@@ -28,4 +28,13 @@ public interface PersonRepositoryCustom {
      * @param id 
      */
     public void remove(int id);
+    
+    /**
+     * Create person
+     * @param firstName
+     * @param lastName
+     * @param birthday
+     * @return 
+     */
+    public Person create(String firstName, String lastName, Date birthday);
 }

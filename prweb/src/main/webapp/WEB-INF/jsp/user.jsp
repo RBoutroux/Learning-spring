@@ -33,7 +33,12 @@
                         <tbody>
                         <tr>
                             <td scope="col"  class="bg-success" >user #</td>
-                            <td>${user.personId}<input type="hidden" name="id" value="${user.personId}" /></td>
+                            <td>
+                                <c:choose>
+                                    <c:when test="${(empty user) || (empty user.personId)}">NEW<input type="hidden" name="id" value="-1" /></c:when>
+                                    <c:otherwise>${user.personId}<input type="hidden" name="id" value="${user.personId}" /></c:otherwise>
+                                </c:choose>
+                            </td>
                         </tr>
                         <tr>
                             <td scope="col" class="bg-success">First Name</td>

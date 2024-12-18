@@ -99,9 +99,12 @@ public class PersonController {
         String lastName = request.getParameter("LastName");
         String birthdateStr = request.getParameter("Birthdate");
         Date birthday = getDateFromString(birthdateStr, "yyyy-MM-dd");
-        
         int id = getIntFromString(idStr);
-        personRepository.update(id, firstName, lastName, birthday);
+        if (id <0) {
+            personRepository.create(firstName, lastName, birthday);
+        } else {
+            personRepository.update(id, firstName, lastName, birthday);
+        }
         
         // return view
         returned = new ModelAndView("users");
@@ -125,6 +128,17 @@ public class PersonController {
         Collection<Person> myList = personRepository.findAll();
         returned.addObject("usersList", myList);
         
+        return returned;
+    }
+    
+    @RequestMapping(value = "createUser.do", method = RequestMethod.POST)
+    public ModelAndView handlePostCreateUser() {
+        ModelAndView returned;
+
+        Person newPerson = new Person();
+        returned = new ModelAndView("user");
+        returned.addObject("user", newPerson);
+
         return returned;
     }
 }

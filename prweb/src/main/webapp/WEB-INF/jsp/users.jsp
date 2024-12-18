@@ -52,7 +52,9 @@
                             <c:forEach var="item" items="${usersList}">
                                 <tr>
                                     <td scope="col">${item.personId}</td>
-                                    <td>${item.personFirstname}</td>
+                                    <td>
+                                        ${item.personFirstname}
+                                    </td>
                                     <td>${item.personLastname}</td>
                                     <td><fmt:formatDate value="${item.personBirthdate}" pattern="yyyy-MM-dd" /></td>
                                     <td class="text-center">
@@ -74,7 +76,7 @@
                                 <td scope="col" colspan="4"></td>
                                 <td class="text-center">
                                     <form action="addUser" method="POST">
-                                        <button name="add" class="btn">
+                                        <button name="add" formaction="createUser.do" class="btn">
                                             <img src="img/plus.png" alt="add" class="icon img-fluid icon-small" />
                                         </button>
                                     </form>
