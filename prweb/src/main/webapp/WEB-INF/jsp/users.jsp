@@ -61,7 +61,7 @@
                                             <button name="edit" formaction="editUser.do" class="btn">
                                                 <img src="img/edit.png" alt="edit" class="icon img-fluid icon-small" />
                                             </button>
-                                            <button name="delete" class="btn">
+                                            <button name="delete" formaction="deleteUser.do" class="btn">
                                                 <img src="img/delete.png" alt="delete" class="icon img-fluid icon-small" />
                                             </button>
                                         </form>

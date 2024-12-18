@@ -22,4 +22,10 @@ public interface PersonRepositoryCustom {
      * @return 
      */
     public Person update(int id, String firstName, String lastName, Date birthday);
+    
+    /**
+     * 
+     * @param id 
+     */
+    public void remove(int id);
 }

@@ -110,4 +110,21 @@ public class PersonController {
         
         return returned;
     }
+    
+    @RequestMapping(value= "deleteUser.do", method = RequestMethod.POST)
+    public ModelAndView handlePostDeleteUser(HttpServletRequest request){
+        ModelAndView returned;
+        
+        String idStr = request.getParameter("id");
+        int id = getIntFromString(idStr);
+        
+        personRepository.remove(id);
+        
+        // return view
+        returned = new ModelAndView("users");
+        Collection<Person> myList = personRepository.findAll();
+        returned.addObject("usersList", myList);
+        
+        return returned;
+    }
 }

@@ -36,5 +36,16 @@ public class PersonRepositoryCustomImpl implements PersonRepositoryCustom {
         }
         return item;
     }
+
+    @Override
+    public void remove(int id) {
+        Person item = null;
+        if (id > 0){
+            item = personRepository.getReferenceById(id);
+        }
+        if(item != null){
+            personRepository.delete(item);
+        }
+    }
     
 }
