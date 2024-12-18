@@ -16,6 +16,7 @@
         <link href="bootstrap/css/bootstrap.css" rel="stylesheet"/>
         <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+        <link href="css/main.css" type="text/css" rel="stylesheet" />
     </head>
     <body>
       <div class="py-3">
@@ -29,10 +30,10 @@
             <div class="col-md-12">
                 <div class="table-responsive">
                     <form action="saveUser.do" method="POST" class="d-inline-block">
-                    <table class="table table-striped table-success border">
+                    <table class="table table-striped">
                         <tbody>
                         <tr>
-                            <td scope="col"  class="bg-success" >user #</td>
+                            <th scope="col">user #</th>
                             <td>
                                 <c:choose>
                                     <c:when test="${(empty user) || (empty user.personId)}">NEW<input type="hidden" name="id" value="-1" /></c:when>
@@ -41,19 +42,19 @@
                             </td>
                         </tr>
                         <tr>
-                            <td scope="col" class="bg-success">First Name</td>
+                            <th scope="col">First Name</th>
                             <td>
                                 <input type="text" class="form-control" name="FirstName" value="${user.personFirstname}" />
                             </td>
                         </tr>
                         <tr>
-                            <td scope="col" class="bg-success">Last Name</td>
+                            <th scope="col">Last Name</th>
                             <td>
                                 <input type="text" class="form-control" name="LastName" value="${user.personLastname}"/>
                             </td>
                         </tr>
                         <tr>
-                            <td scope="col" class="bg-success">Birthdate</td>
+                            <th scope="col">Birthdate</th>
                             <td>
                                 <input type="date" class="form-control" name="Birthdate" value="<fmt:formatDate value="${user.personBirthdate}" pattern="yyyy-MM-dd"/>" />
                             </td>

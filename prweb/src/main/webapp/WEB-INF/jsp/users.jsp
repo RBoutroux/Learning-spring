@@ -16,18 +16,11 @@
         <link href="bootstrap/css/bootstrap.css" rel="stylesheet"/>
         <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+        <link href="css/main.css" type="text/css" rel="stylesheet" />
     </head>
     <body>
-      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <div class="container">
-          <div class="collapse navbar-collapse" id="navbar1">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item"> <a class="nav-link text-white" href="users.html">Users</a></li>
-              <li class="nav-item"> <a class="nav-link text-white" href="books.html">Books</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+      <%@ include file="navbar.jspf" %>
+     
       <div class="py-3">
         <div class="container">
           <div class="row">
@@ -35,11 +28,11 @@
               <h2 class="">List of users</h2>
             </div>
           </div>
-          <div class="row text-center">
+          <div class="row">
             <div class="col-md-12">
                 <div class="table-responsive">
-                    <table class="table table-striped border">
-                        <thead class="bg-success">
+                    <table class="table table-striped">
+                        <thead>
                         <tr>
                             <th scope="col" class="text-center">user #</th>
                             <th scope="col" class="text-center">First Name</th>

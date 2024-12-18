@@ -8,6 +8,7 @@
         <link href="bootstrap/css/bootstrap.css" rel="stylesheet"/>
         <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+        <link href="css/main.css" type="text/css" rel="stylesheet" />
     </head>
     <body>
       <div class="py-5">

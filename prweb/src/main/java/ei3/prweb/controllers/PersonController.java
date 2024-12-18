@@ -141,4 +141,15 @@ public class PersonController {
 
         return returned;
     }
+    
+    @RequestMapping(value = "users.do", method = RequestMethod.POST)
+    public ModelAndView handleUsersPost(HttpServletRequest request) {
+        ModelAndView returned;
+
+        returned = new ModelAndView("users");
+        Collection<Person> myList = personRepository.findAll();
+        returned.addObject("usersList", myList);
+
+        return returned;
+    }
 }
