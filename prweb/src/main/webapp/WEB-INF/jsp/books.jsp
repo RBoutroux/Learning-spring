@@ -40,13 +40,14 @@
                                         <td scope="col">${item.bookId}</td>
                                         <td>${item.bookTitle}</td>
                                         <td>${item.bookAuthors}</td>
-                                    <td class="text-center">
-                                        <form action="#" method="POST">
-                                            <input type="hidden" name="id" value="${item.bookId}" />
-                                            <button name="edit" class="btn" formaction="editbook.do"><img src="img/edit.png" alt="edit" class="icon" /></button>
-                                            <button name="delete" class="btn" formaction="deletebook.do"><img src="img/delete.png" alt="delete" class="icon" /></button>
-                                        </form>
-                                    </td>
+                                        <td class="text-center">
+                                            <form action="#" method="POST">
+                                                <input type="hidden" name="id" value="${item.bookId}" />
+                                                <button name="edit" class="btn" formaction="editbook.do"><img src="img/edit.png" alt="edit" class="icon" /></button>
+                                                <button name="delete" class="btn" formaction="deletebook.do"><img src="img/delete.png" alt="delete" class="icon" /></button>
+                                            </form>
+                                        </td>
+                                    </tr>
                                 </c:forEach>
                                 </tbody>
                                 <tfoot>
