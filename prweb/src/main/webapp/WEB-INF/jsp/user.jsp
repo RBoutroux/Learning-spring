@@ -44,13 +44,13 @@
                         <tr>
                             <td scope="col" class="bg-success">Last Name</td>
                             <td>
-                                <input type="text" class="form-control" name="LastName" value="<fmt:formatDate value="${user.personLastname}" pattern="yyyy-MM-dd"/>"/>
+                                <input type="text" class="form-control" name="LastName" value="${user.personLastname}"/>
                             </td>
                         </tr>
                         <tr>
                             <td scope="col" class="bg-success">Birthdate</td>
                             <td>
-                                <input type="date" class="form-control" name="Birthdate" value="${user.personBirthdate}" />
+                                <input type="date" class="form-control" name="Birthdate" value="<fmt:formatDate value="${user.personBirthdate}" pattern="yyyy-MM-dd"/>" />
                             </td>
                         </tbody>
                         <tfoot>
