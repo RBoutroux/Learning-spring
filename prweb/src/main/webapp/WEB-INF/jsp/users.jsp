@@ -56,12 +56,11 @@
                                     <td>${item.personLastname}</td>
                                     <td><fmt:formatDate value="${item.personBirthdate}" pattern="yyyy-MM-dd" /></td>
                                     <td class="text-center">
-                                        <form action="editUser" method="POST" class=" d-inline-block">
-                                            <button name="edit" class="btn">
+                                        <form action="editUser" method="POST" class="d-inline-block">
+                                            <input type="hidden" name="id" value="${item.personId}">
+                                            <button name="edit" formaction="editUser.do" class="btn">
                                                 <img src="img/edit.png" alt="edit" class="icon img-fluid icon-small" />
                                             </button>
-                                        </form>
-                                        <form action="deleteUser" method="POST" class=" d-inline-block">
                                             <button name="delete" class="btn">
                                                 <img src="img/delete.png" alt="delete" class="icon img-fluid icon-small" />
                                             </button>
@@ -79,6 +78,7 @@
                                             <img src="img/plus.png" alt="add" class="icon img-fluid icon-small" />
                                         </button>
                                     </form>
+                                </td>
                             </tr>
                         </tfoot>
                     </table>
