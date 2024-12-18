@@ -54,7 +54,7 @@
                                     <td scope="col">${item.personId}</td>
                                     <td>${item.personFirstname}</td>
                                     <td>${item.personLastname}</td>
-                                    <td><fmt:formatDate value="${item.personBirthdate}" pattern="yyyy-MM--dd" /></td>
+                                    <td><fmt:formatDate value="${item.personBirthdate}" pattern="yyyy-MM-dd" /></td>
                                     <td class="text-center">
                                         <form action="editUser" method="POST" class=" d-inline-block">
                                             <button name="edit" class="btn">
