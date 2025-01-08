@@ -4,10 +4,17 @@
  */
 package ei3.prweb.repositories;
 
+import ei3.prweb.items.Borrow;
+import java.util.Date;
+
 /**
  *
  * @author remib
  */
 public interface BorrowRepositoryCustom {
+    public Borrow returnBook(Borrow item, Date date);
     
+    public Borrow returnBook(Borrow item);
+    
+    public Borrow returnBook(int borrowId);
 }
