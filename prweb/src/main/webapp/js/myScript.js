@@ -3,7 +3,10 @@ function returnBorrowSuccess(theResult, buttonRef){
         //Get TD that owns the button
         var refTD = buttonRef.parentElement;
         if(refTD !== null){
-            //remove button
+            // Remove button
+            refTD.removeChild(buttonRef);
+            
+            // Set return date
             var currentDate = new Date(((Date)(theResult.returnedValue)));
             var currentDateStr = currentDate.toLocaleDateString();
             var text = document.createTextNode(currentDateStr);
