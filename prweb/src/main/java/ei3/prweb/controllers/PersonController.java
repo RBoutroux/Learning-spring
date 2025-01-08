@@ -5,7 +5,9 @@
 package ei3.prweb.controllers;
 
 
+import ei3.prweb.items.Book;
 import ei3.prweb.items.Person;
+import ei3.prweb.repositories.BookRepository;
 import ei3.prweb.repositories.PersonRepository;
 import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
@@ -31,6 +33,9 @@ public class PersonController {
     
     @Autowired
     private PersonRepository personRepository;
+    
+    @Autowired
+    private BookRepository bookRepository;
     
     private int getIntFromString(String value){
         int intValue = -1;
@@ -73,6 +78,8 @@ public class PersonController {
             Person person = personRepository.getReferenceById(id);
             returned = new ModelAndView("user");
             returned.addObject("user", person);
+            Collection<Book> booksList = bookRepository.findAll();
+            returned.addObject("booksList", booksList);
         }
         else {
             returned = new ModelAndView("users");

@@ -16,6 +16,7 @@
         <link href="bootstrap/css/bootstrap.css" rel="stylesheet"/>
         <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/myScript.js"></script>
         <link href="css/main.css" type="text/css" rel="stylesheet" />
     </head>
     <body>
@@ -71,6 +72,60 @@
                 </div>
             </div>
           </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Borrow date</th>
+                                                    <th>Book title</th>
+                                                    <th>Borrow return</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <c:forEach var="borrow" items="${user.borrowCollection}">
+                                                    <tr>
+                                                        <td><fmt:formatDate value="${borrow.borrowDate}" pattern="yyyy-MM-dd" /></td>
+                                                        <td>${borrow.getBookId().bookTitle}</td><%--same as borrow.bookId.bookTitle, on peut appeler du Java das un jsp !!!!!!!!!!!!!!!!!!!!--%>
+                                                        <td class="centered">
+                                                            <c:choose>
+                                                                <c:when test="${not empty borrow.borrowReturn}">
+                                                                    <fmt:formatDate value="${borrow.borrowReturn}" pattern="yyyy-MM-dd"/>
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    <button class="icon" name="return"
+                                                                            onclick="returnBorrow(this, ${borrow.borrowId}); return false;">
+                                                                        <img src="img/return.png" alt="return" class="icon" />
+                                                                    </button>
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </td>
+                                                    </tr>
+                                                </c:forEach>
+                                            </tbody>
+                                            <tfoot>
+                                            <form action="addBorrow.do" method="POST">
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <input type="hidden" name="userID" value="${user.personId}"/>
+                                                        <select name="bookID" class="form-control form-select form-select-lg mb-3">
+                                                            <option value="-1" selected="selected">-</option>
+                                                            <c:forEach var="book" items="${booksList}">
+                                                                <option value="${book.bookId}">${book.bookTitle}</option>
+                                                            </c:forEach>
+                                                        </select>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <button class="btn"><img src="img/plus.png" alt="add" class="icon"></button>
+                                                    </td>
+                                                </tr>
+                                            </form>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
         </div>
       </div>
     </body>
