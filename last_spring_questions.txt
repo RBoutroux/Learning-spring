@@ -1,0 +1,46 @@
+What is JSTL?
+JSP files can include a language to manipulate data : JSTL (or Java server page Standard Tag Library).
+Car permet par exemple de créer des boucles dans le fichier jsp. (et à pue près toutes les fonctions logiques)
+
+
+How do you send data to a view?
+You use a ModelAndView inside a controller : 
+	ModelAndView returned;
+	returned = new ModelAndView("books");
+	Collection<Book> myList = bookRepository.findAll();
+	returned.addObject("booksList", myList);
+	return returned;
+
+
+In a controller, how do you get informations from a form?
+You use a servlet request : 
+	public ModelAndView handleReturn(HttpServletRequest request){
+		String borrowStr = request.getParameter("id");
+        	int borrowId = getIntFromString(borrowStr);
+
+
+How do you associate a route to a controller?
+You use this annotation : 
+	@RequestMapping(value = "createbook.do", method = RequestMethod.POST)
+
+
+How do you define a class as a Controller? a Repository?
+You use annotations : 
+	@Controller
+	public class BorrowController {
+	
+	@Repository
+	public interface BookRepository extends JpaRepository<Book, Integer>, BookRepositoryCustom{
+
+
+What is the difference between SQL and JPQL?
+In Java EE, the Java Persistence API (JPA) is the standard API for accessing relational databases, providing a simple and efficient way for managing the object/relational mapping (ORM) of regular Java objects (POJO) to relational data. Such Java objects are called JPA entities or just entities.
+The main difference between JPQL and SQL lies in that the former deals with JPA entities, while the latter deals directly with relational data. 
+
+
+
+What is @Autowired used for?
+The annotations (especially “Autowired”) can tell to Spring and JPA to use default implementations
+for our interfaces.
+It is used to be able to easily instantiate a repository. 
+
