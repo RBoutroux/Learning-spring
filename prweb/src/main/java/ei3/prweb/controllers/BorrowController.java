@@ -4,8 +4,12 @@
  */
 package ei3.prweb.controllers;
 
+import ei3.prweb.items.Book;
 import ei3.prweb.items.Borrow;
+import ei3.prweb.items.Person;
+import ei3.prweb.repositories.BookRepository;
 import ei3.prweb.repositories.BorrowRepository;
+import ei3.prweb.repositories.PersonRepository;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -30,6 +34,12 @@ public class BorrowController {
     
     @Autowired
     private BorrowRepository borrowRepository;
+    
+    @Autowired
+    private PersonRepository personRepository;
+    
+    @Autowired
+    private BookRepository bookRepository;
     
     /**
      * Get Date from string
@@ -87,6 +97,27 @@ public class BorrowController {
             returned.setStatus(HttpStatus.BAD_REQUEST);
         }
         returned.addObject("theResponse", returnedObject.toString());
+        
+        return returned;
+    }
+    
+    @RequestMapping(value="addBorrow.do", method = RequestMethod.POST)
+    public ModelAndView handleAddBorrow(HttpServletRequest request){
+        String userStr = request.getParameter("userID");
+        int userId = getIntFromString(userStr);
+        Person user = personRepository.getReferenceById(userId);
+        
+        String bookStr = request.getParameter("bookID");
+        int bookId = getIntFromString(bookStr);
+        Book book = bookRepository.getReferenceById(bookId);
+        
+        borrowRepository.create(user, book);
+        //Refresh user data (bookCollection)
+        user = personRepository.getReferenceById(userId);
+        
+        ModelAndView returned = new ModelAndView("user");
+        returned.addObject("user", user);
+        returned.addObject("booksList", bookRepository.findAll());
         
         return returned;
     }

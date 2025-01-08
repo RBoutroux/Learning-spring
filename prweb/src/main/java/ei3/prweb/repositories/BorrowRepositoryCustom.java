@@ -4,7 +4,9 @@
  */
 package ei3.prweb.repositories;
 
+import ei3.prweb.items.Book;
 import ei3.prweb.items.Borrow;
+import ei3.prweb.items.Person;
 import java.util.Date;
 
 /**
@@ -17,4 +19,8 @@ public interface BorrowRepositoryCustom {
     public Borrow returnBook(Borrow item);
     
     public Borrow returnBook(int borrowId);
+    
+    public Borrow create(Person person, Book book, Date borrowDate);
+    
+    public Borrow create(Person person, Book book);
 }
