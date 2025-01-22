@@ -126,7 +126,7 @@ public class BorrowController {
     public ModelAndView handleBorrowsPost(HttpServletRequest request){
         
         ModelAndView returned = new ModelAndView("borrows");
-        returned.addObject("borrows", borrowRepository.findAll());
+        returned.addObject("booksList", bookRepository.findAll());
         
         return returned;
     }

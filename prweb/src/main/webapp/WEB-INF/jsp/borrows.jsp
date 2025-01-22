@@ -34,6 +34,16 @@
                                         <th scope="col" class="text-center">Number of borrows</th>
                                     </tr>
                                 </thead>
+                                <tbody>
+                                <c:forEach var="item" items="${booksList}">
+                                    <tr>
+                                        <td scope="col">${item.bookId}</td>
+                                        <td>${item.bookTitle}</td>
+                                        <td>${item.bookAuthors}</td>
+                                        <td>Stat</td>
+                                    </tr>
+                                </c:forEach>
+                                </tbody>
                             </table>
                         </div>
                     </div>
