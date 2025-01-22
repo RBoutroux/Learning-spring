@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="fr-fr">
     <head>
-        <title>List Books Page</title>
+        <title>Borrows</title>
         <meta charset="UTF-8"/> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
@@ -15,5 +15,30 @@
     </head>
     <body>
         <%@ include file="navbar.jspf" %>
+        <div class="py-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="">List of books</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="text-center">book #</th>
+                                        <th scope="col" class="text-center">Title</th>
+                                        <th scope="col" class="text-center">Authors</th>
+                                        <th scope="col" class="text-center">Number of borrows</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
