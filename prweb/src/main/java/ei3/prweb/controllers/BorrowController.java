@@ -127,15 +127,18 @@ public class BorrowController {
     
     @RequestMapping(value="borrows.do", method = RequestMethod.POST)
     public ModelAndView handleBorrowsPost(HttpServletRequest request){
-        
+        // Récupération des données nécessaires
         Collection<Book> books = bookRepository.findAll();
         Collection<Borrow> borrows = borrowRepository.findAll();
+        
+        // Création et remplissage de la liste à renvoyer à la page. 
         ArrayList<BookBorrows> booksBorrows;
         booksBorrows = new ArrayList<>();
         for (Book book : books) {
             // On initialise le nombre d'emprunts à 0
             BookBorrows bookBorrows = new BookBorrows(book);
             
+            // Itération à travers les borrows pour compter le nombre d''apparition du livre dedans.
             int bookId = book.getBookId();
             for (Borrow borrow : borrows) {
                 Book borrowedBook = borrow.getBookId();
@@ -146,7 +149,6 @@ public class BorrowController {
             }
             booksBorrows.add(bookBorrows);
         }
-        
         
         ModelAndView returned = new ModelAndView("borrows");
         returned.addObject("booksList", booksBorrows);

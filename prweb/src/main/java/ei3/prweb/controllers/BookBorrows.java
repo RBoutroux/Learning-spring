@@ -7,7 +7,7 @@ package ei3.prweb.controllers;
 import ei3.prweb.items.Book;
 
 /**
- *
+ * Class representing a book accompanied by the number of times it was borrowed. 
  * @author remib
  */
 public class BookBorrows {

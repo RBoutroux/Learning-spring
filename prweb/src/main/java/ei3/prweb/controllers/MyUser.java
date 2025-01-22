@@ -5,7 +5,7 @@
 package ei3.prweb.controllers;
 
 /**
- *
+ * Classe représentant un utilisateur. 
  * @author remib
  */
 public class MyUser {
