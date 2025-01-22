@@ -121,4 +121,13 @@ public class BorrowController {
         
         return returned;
     }
+    
+    @RequestMapping(value="borrows.do", method = RequestMethod.POST)
+    public ModelAndView handleBorrowsPost(HttpServletRequest request){
+        
+        ModelAndView returned = new ModelAndView("borrows");
+        returned.addObject("borrows", borrowRepository.findAll());
+        
+        return returned;
+    }
 }
