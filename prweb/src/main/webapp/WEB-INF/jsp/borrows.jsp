@@ -37,10 +37,10 @@
                                 <tbody>
                                 <c:forEach var="item" items="${booksList}">
                                     <tr>
-                                        <td scope="col">${item.bookId}</td>
-                                        <td>${item.bookTitle}</td>
-                                        <td>${item.bookAuthors}</td>
-                                        <td>Stat</td>
+                                        <td scope="col">${item.book.bookId}</td>
+                                        <td>${item.book.bookTitle}</td>
+                                        <td>${item.book.bookAuthors}</td>
+                                        <td>${item.numberOfBorrows}</td>
                                     </tr>
                                 </c:forEach>
                                 </tbody>

@@ -12,7 +12,10 @@ import ei3.prweb.repositories.BorrowRepository;
 import ei3.prweb.repositories.PersonRepository;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.AbstractCollection;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -125,8 +128,28 @@ public class BorrowController {
     @RequestMapping(value="borrows.do", method = RequestMethod.POST)
     public ModelAndView handleBorrowsPost(HttpServletRequest request){
         
+        Collection<Book> books = bookRepository.findAll();
+        Collection<Borrow> borrows = borrowRepository.findAll();
+        ArrayList<BookBorrows> booksBorrows;
+        booksBorrows = new ArrayList<>();
+        for (Book book : books) {
+            // On initialise le nombre d'emprunts à 0
+            BookBorrows bookBorrows = new BookBorrows(book);
+            
+            int bookId = book.getBookId();
+            for (Borrow borrow : borrows) {
+                Book borrowedBook = borrow.getBookId();
+                if (bookId == borrowedBook.getBookId()){
+                    // On incrémente le nombre d'emprunt de 1
+                    bookBorrows.setNumberOfBorrows(bookBorrows.getNumberOfBorrows()+1);
+                }
+            }
+            booksBorrows.add(bookBorrows);
+        }
+        
+        
         ModelAndView returned = new ModelAndView("borrows");
-        returned.addObject("booksList", bookRepository.findAll());
+        returned.addObject("booksList", booksBorrows);
         
         return returned;
     }

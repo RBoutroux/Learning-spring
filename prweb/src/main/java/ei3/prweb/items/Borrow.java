@@ -33,7 +33,7 @@ import javax.validation.constraints.NotNull;
     @NamedQuery(name = "Borrow.findByBorrowDate", query = "SELECT b FROM Borrow b WHERE b.borrowDate = :borrowDate"),
     @NamedQuery(name = "Borrow.findByBorrowReturn", query = "SELECT b FROM Borrow b WHERE b.borrowReturn = :borrowReturn")})
 public class Borrow implements Serializable {
-
+    //@NamedQuery(name = "Borrow.findAllByBookId", query = "SELECT b FROM Borrow b WHERE b.bookId = :bookId")})
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
