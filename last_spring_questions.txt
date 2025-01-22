@@ -1,6 +1,6 @@
 What is JSTL?
 JSP files can include a language to manipulate data : JSTL (or Java server page Standard Tag Library).
-Car permet par exemple de créer des boucles dans le fichier jsp. (et à pue près toutes les fonctions logiques)
+Ca permet par exemple de créer des boucles dans le fichier jsp. (et à peu près toutes les fonctions logiques)
 
 
 How do you send data to a view?

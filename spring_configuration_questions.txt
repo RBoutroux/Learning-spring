@@ -4,7 +4,7 @@ It contains a file “context.xml” that gives the route for your application.
 DO NOT CHANGE IT if you are not required to.
 
 WEB-INF : Configuration directory for the application.
-It contents :
+It contains :
 – some configuration files.
 * web.xml that defines servlet, listeners, the starting page, …
 * applicationContext.xml that defines how the application works, how to find
@@ -29,7 +29,7 @@ There is also persistence.xml that manages persistence (aka. table and entities)
 
 What is a namespace?
 C'est un ensemeble de classes qui se connaissent les unes les autres. (c'est quoi la diff avec un package ?)
-On peut import un namespace ou un élément d'un namaespace dans un autre namespace ou dans une classe directement. 
+On peut import un namespace ou un élément d'un namespace dans un autre namespace ou dans une classe directement. 
 
 How do you define a route in a controller?
 Annotation @RequestMapping tells what route we manage.
